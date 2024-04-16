@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Image Upload Instructions</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+        <img src="https://i.ibb.co/b3swY7M/Yellow-Green-Pastel-Color-Illustrative-Cake-Logo-3.png" alt="Kilmaine Kakes Logo">
+        </div>  
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="column">
+                <h1>How to Upload Images</h1>
+                <div class="blog-post img">
+                    <img src="https://i.ibb.co/c3yN2sd/imgbb.png" alt="Imgbb home">
+                </div>
+
+            </div>
+            <div class="column">
+                <p>Please access the website at <a href="https://imgbb.com/login">https://imgbb.com/login</a> and log in using the provided credentials:</p>
+                <ul>
+                    <li>Username: kilmainekakes             Password: K1lma1n3KaK3s!</li>
+                </ul>
+                <p>Once logged in, locate the upload button situated in the top right corner of the interface. Proceed to upload your desired image by dragging it into the designated area and providing a name and description. Please be mindful that the description will serve as alt text for the image.</p>
+                <p>After uploading, close any pop-up prompts and navigate to the gallery window. Click on the name of the uploaded image and scroll down to find its Image URL. Copy the URL.</p>
+                <p>Subsequently, paste the copied Image URL into the "Upload an Image" form on the website. It's important to ensure all images are cropped square to maintain correct formatting.</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <h2>Add Image to Gallery</h2>
+        <form action="/add_image" method="POST">
+            <label for="img_link">Image Link:</label><br>
+            <input type="text" id="img_link" name="img_link"><br>
+            <label for="img_description">Image Description:</label><br>
+            <input type="text" id="img_description" name="img_description"><br><br>
+            <input type="submit" value="Add Image">
+        </form>
+    </div>
+    <br>
+    <div class="container">
+        <h2>Add a Blog Post</h2>
+        <form action="/add_blog" method="POST">
+            <label for="img_link">Image Link:</label><br>
+            <input type="text" id="img_link" name="img_link"><br>
+            <label for="img_description">Image Description:</label><br>
+            <input type="text" id="img_description" name="img_description"><br><br>
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title"><br><br>
+            <label for="date">Date:</label><br>
+            <input type="date" id="date" name="date"><br><br>
+            <label for="content">Content:</label><br>
+            <input type="text" id="content" name="content" class="large-content"><br><br>
+            <input type="submit" value="Add Blog">
+        </form>
+    <!-- <button onclick="window.location.href = 'uploadimage.html';">Go to Upload Page</button> -->
+    </div>
+</body>
+<style>
+    form {
+        margin-top: 20px;
+    }
+    
+    label {
+        font-weight: bold;
+        font-family: Georgia, serif;
+    }
+
+    .large-content {
+    width: 100%;
+    height: 200px;
+    padding: 12px 20px;
+    }
+
+    input[type="text"],
+    input[type="date"]{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: Georgia, serif; 
+    }
+
+    textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Georgia, serif;
+    }
+    
+    input[type="submit"] {
+        width: 100%;
+        background-color: #fff3d6;
+        color: #420e2e;
+        font-family: Georgia, serif; 
+        font-size: 20px;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+        background-color: #9BAF96;
+    }
+    </style>
+</html>

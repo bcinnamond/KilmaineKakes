@@ -1,0 +1,205 @@
+/* ----------- MAIN STYLES ---------- */
+  body {
+      font-family: Georgia, serif; /* Georgia font */
+      background-image: url("https://i.ibb.co/T8X4tBm/Untitled-design-2.png");
+      color: #424242; /* Dark grey text */
+      margin: 0;
+      padding: 0;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.25); /* Set the background color with 50% opacity */
+    z-index: -1; /* Ensure the pseudo-element is behind other content */
+  }
+
+  header {
+    background-color: #4CAF50; /* Main green background */
+    color: #fff; /* White text */
+    padding: 20px;
+    text-align: center;
+  }
+
+  .container {
+  max-width: 1400px; /* Adjust the maximum width as needed */
+  margin: 0 auto; /* Center the post horizontally */
+  padding: 20px;
+  background-color: #fffdeb; 
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
+  }
+
+
+
+  h1, h2, h3, h4 {
+    color: #420e2e;
+    text-align: center;
+    font-family: Georgia, serif; /* Georgia font */
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  a {
+    color: #4CAF50; /* Main green links */
+    text-decoration: none;
+    transition: color 0.3s; /* Smooth color transition */
+  }
+
+  a:hover {
+    color: #8BC34A; /* Light green hover color */
+  }
+
+
+
+
+  /* ---------- NAVIGATION ---------- */
+  nav {
+    display: flex;
+    justify-content: space-between; /* Aligns items at the beginning and end of the flex container */
+    align-items: center;
+    padding: 5px;
+    background-color: #fffdeb;
+  }
+
+  .logo img {
+    height: 125px;
+    margin-left: 100px;
+  }
+
+  .nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links li {
+    display: inline-block;
+    margin-right: 100px;
+  }
+
+  .nav-links li:first-child {
+    margin-left: 0;
+  }
+
+  /* Media query for smaller screens */
+  @media screen and (max-width: 768px) {
+    nav {
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .logo img {
+        height: 100px;
+    }
+
+    .nav-links li {
+        display: inline-block;
+        margin-left: 20px;
+    }
+    .nav-links a {
+      font-family: Georgia, serif; /* Georgia font */
+      font-size: 10px; /* Larger font size */
+      color: #420e2e; /* Color #9BAF96 */
+      text-decoration: none; /* Remove underline */
+    }
+
+  }
+
+  .nav-links a {
+    font-family: Georgia, serif; /* Georgia font */
+    font-size: 30px; /* Larger font size */
+    color: #420e2e; /* Color #9BAF96 */
+    text-decoration: none; /* Remove underline */
+  }
+
+  .nav-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #9BAF96; /* Color #9BAF96 */
+  }
+
+
+
+  /* ---------- HOME PAGE ---------- */
+
+  .testimonials {
+      max-width: 1300px; /* Adjust the maximum width as needed */
+      margin: 0 auto; /* Center the post horizontally */
+      padding: 20px;
+      background-color: #fff3d6; /* White background */
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+
+    /* Create three equal columns that floats next to each other */
+    .column-home {
+      float: left;
+      width: 33.3%;
+      border-radius: 8px;
+      background-color: #fffdeb;
+    }
+    
+    .column-home img {
+      max-width: 100%; /* Ensure the image doesn't exceed the width of the container */
+      max-height: 100%; /* Ensure the image doesn't exceed the height of the container */
+      display: block; /* Ensure the image is displayed as a block element */
+      margin: auto; /* Center the image horizontally */
+      height: 600 px;
+  }
+
+
+  /* ---------- BLOG PAGE ----------*/ 
+
+  .blog-container {
+    max-width: 1300px;
+    margin: 0 auto; 
+    padding: 20px;
+    background-color: #fffdeb; 
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  }
+
+  .blog-post img {
+      max-width: 100%; /* Ensure the image doesn't exceed the width of the container */
+      max-height: 100%; /* Ensure the image doesn't exceed the height of the container */
+      display: block; /* Ensure the image is displayed as a block element */
+      margin: auto; /* Center the image horizontally */
+      height: 600 px;
+  }
+
+  /* Create three equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 45%;
+    padding: 15px;
+  }
+
+  /* Clear floats after the columns */
+  .row::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width:600px) {
+    .column {
+      width: 100%;
+  }
+
+
+  /* ---------- LOGIN PAGE ---------- */
+
+
+  
+}

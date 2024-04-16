@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Blog - Kilmaine Kakes</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+        <img src="https://i.ibb.co/b3swY7M/Yellow-Green-Pastel-Color-Illustrative-Cake-Logo-3.png" alt="Kilmaine Kakes Logo">
+        </div> 
+        <h1>BLOG</h1>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+    <div class="blog-container"> 
+        {% for post in blog %}
+        <div class="row">
+            <div class="column">
+                <div class="blog-post img">
+                    <img src="{{ post[0] }}" alt="{{ post[1] }}">
+                </div>
+            </div>
+            <div class="column">
+                <h2>{{ post[2] }}</h2>
+                <h3>{{ post[3] }}</h3>
+                <p>{{ post[4] }}</p>  
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
