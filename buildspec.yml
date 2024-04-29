@@ -10,7 +10,7 @@ phases:
   build:
     commands:
       - echo Building Docker Image for Flask Application
-      - docker build -t flask_image .
+      - docker build -t kilmainekakes .
       - echo Image built successfully
 
   post_build:
