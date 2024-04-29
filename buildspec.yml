@@ -17,5 +17,5 @@ phases:
     commands:
       - echo Tagging Flask Docker image
       - docker tag kilmainekakes:latest 471112624607.dkr.ecr.eu-north-1.amazonaws.com/kilmainekakes:latest
-      - docker push 471112624607.dkr.ecr.eu-north-1.amazonaws.com/kilmainekakes/:latest
+      - docker push https://471112624607.dkr.ecr.eu-north-1.amazonaws.com/kilmainekakes/:latest
       - echo Flask image pushed to ECR
