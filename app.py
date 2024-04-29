@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 
 app = Flask(__name__)
-
+app = app 
 
 # Database configuration
 db_host = 'kilmainekakes.crs8soowki9c.eu-north-1.rds.amazonaws.com'
