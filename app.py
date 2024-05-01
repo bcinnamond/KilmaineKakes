@@ -34,7 +34,7 @@ def blogpg():
             blog_data = cursor.fetchall()
     except pymysql.Error as e:
         # Handle database errors
-        print(f"Error fetching blog data: {e}")
+        print(f"Error fetching blog data!: {e}")
         blog_data = []
 
     # finally:
