@@ -38,8 +38,8 @@ def blogpg():
         print(f"Error fetching blog data: {e}")
         blog_data = []
 
-    finally:
-        connection.close()
+    # finally:
+    #     connection.close()
 
     return render_template('blog.html', blog=blog_data)
 
@@ -60,8 +60,8 @@ def gallerypg():
         print(f"Error fetching gallery data: {e}")
         gallery_data = []
 
-    finally:
-        connection.close()
+    # finally:
+    #     connection.close()
 
     return render_template('gallery.html', gallery=gallery_data)
 
