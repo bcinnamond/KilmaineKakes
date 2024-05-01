@@ -1,4 +1,3 @@
-import boto3
 import pymysql
 from flask import Flask, render_template, request, redirect, url_for
 
@@ -77,7 +76,7 @@ def owner_login():
     username = request.form['username']
     password = request.form['password']
     
-    # Check if username and password match the hardcoded credentials
+    # Check if username and password match
     if username == USERNAME and password == PASSWORD:
         # Redirect to a success page if login is successful
         return redirect(url_for('success'))
