@@ -46,7 +46,17 @@ def blogpg():
 
 @app.route('/contact')
 def contactpg():
-        return render_template('contact.html')
+    connection = None
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT email, phone, openhrs FROM gallery")
+            contact_data = cursor.fetchall()
+    except pymysql.Error as e:
+        # Handle database errors
+        print(f"Error fetching contact data: {e}")
+        gallery_data = []
+        return render_template('contact.html', contact=contact_data)
 
 @app.route('/gallery')
 def gallerypg():
@@ -126,6 +136,20 @@ def add_blog():
         
         return redirect(url_for('blogpg'))
 
+@app.route('/add_contact', methods=['POST'])
+def add_contact():
+    phone = request.form['phone']
+    email = request.form['email']
+    openhrs = request.form['openhrs']
+    
+    # Insert image details into the database
+    connection = get_db_connection()
+    cursor = connection.cursor()
+    cursor.execute("INSERT INTO contact (phone, email, openhrs) VALUES (%s, %s, %s)", (phone, email, openhrs))
+    connection.commit()
+    connection.close()
+    
+    return redirect(url_for('contactpg'))
 
 if __name__ == '__main__':
         app.run()

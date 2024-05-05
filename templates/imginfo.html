@@ -71,23 +71,6 @@
     <br>
     <div class="container">
         <h2>Add a Blog Post</h2>
-        <form action="/add_blog" method="POST">
-            <label for="img_link">Image Link:</label><br>
-            <input type="text" id="img_link" name="img_link"><br>
-            <label for="img_description">Image Description:</label><br>
-            <input type="text" id="img_description" name="img_description"><br><br>
-            <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title"><br><br>
-            <label for="date">Date:</label><br>
-            <input type="date" id="date" name="date"><br><br>
-            <label for="content">Content:</label><br>
-            <input type="text" id="content" name="content" class="large-content"><br><br>
-            <input type="submit" value="Add Blog">
-        </form>
-    </div>
-
-    <div class="container">
-        <h2>Add a Blog Post</h2>
         <form id="blogForm" action="/add_blog" method="POST" onsubmit="return validateBlogForm()">
             <label for="img_link">Image Link:</label><br>
             <input type="text" id="img_link" name="img_link"><br>
@@ -129,7 +112,19 @@
             
             return true;
         }
-    </script>    
+    </script>
+        <div class="container">
+            <h2>Update Contact Details</h2>
+            <form action="/add_contact" method="POST" onsubmit="return validateContactForm()">
+                <label for="phone">Phone Number:</label><br>
+                <input type="text" id="phone" name="phone"><br>
+                <label for="email">Email Address:</label><br>
+                <input type="text" id="email" name="email"><br>
+                <label for="openhrs">Opening Hours:</label><br>
+                <input type="text" id="openhrs" name="openhrs"><br><br>
+                <input type="submit" value="Update Details">
+            </form>
+        </div>   
 </body>
 <style>
     form {
