@@ -124,7 +124,25 @@
                 <input type="text" id="openhrs" name="openhrs"><br><br>
                 <input type="submit" value="Update Details">
             </form>
-        </div>   
+        </div>
+        <script>
+            function validateContactForm() {
+                var phone = document.getElementById('phone').value;
+                var email = document.getElementById('email').value;
+                var openhrs = document.getElementById('openhrs').value;
+
+                // Regular expression to allow alphanumeric characters and full stops
+                var regex = /^[a-zA-Z0-9@:\-.]+$/;
+                
+                // Check if any input contains characters other than alphanumeric characters and full stops
+                if (!regex.test(phone) || !regex.test(email) || !regex.test(openhrs)) {
+                    alert('Inputs cannot contain special characters except for full stops. Only alphanumeric characters and full stops are allowed.');
+                    return false;
+                }
+                
+                return true;
+            }
+        </script>   
 </body>
 <style>
     form {
