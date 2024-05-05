@@ -9,7 +9,7 @@ app = app
 
 # Retrieve database credentials from AWS Secrets Manager
 def get_db_credentials():
-    client = boto3.client('secretsmanager')
+    client = boto3.client('secretsmanager', region_name='eu-north-1')
     response = client.get_secret_value(SecretId='databasecredentials')
     secret_data = response['SecretString']
     return json.loads(secret_data)
