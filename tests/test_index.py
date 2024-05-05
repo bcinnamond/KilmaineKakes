@@ -1,3 +1,4 @@
+# Tests for index page and routes
 
 def test_index(app, client):
     res = client.get('/')
