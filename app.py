@@ -50,7 +50,7 @@ def contactpg():
     try:
         connection = get_db_connection()
         with connection.cursor() as cursor:
-            cursor.execute("SELECT email, phone, openhrs FROM gallery")
+            cursor.execute("SELECT email, phone, openhrs, contactcreate FROM gallery ORDER BY contactcreate DESC")
             contact_data = cursor.fetchall()
     except pymysql.Error as e:
         # Handle database errors
