@@ -50,13 +50,14 @@ def contactpg():
     try:
         connection = get_db_connection()
         with connection.cursor() as cursor:
-            cursor.execute("SELECT phone, email, openhrs, contactcreate FROM gallery ORDER BY contactcreate DESC")
+            cursor.execute("SELECT phone, email, openhrs, contactcreate FROM contact ORDER BY contactcreate DESC")
             contact_data = cursor.fetchall()
     except pymysql.Error as e:
         # Handle database errors
         print(f"Error fetching contact data: {e}")
         contact_data = []
-        return render_template('contact.html', contact=contact_data)
+
+    return render_template('contact.html', contact=contact_data)
 
 @app.route('/gallery')
 def gallerypg():
@@ -70,9 +71,6 @@ def gallerypg():
         # Handle database errors
         print(f"Error fetching gallery data: {e}")
         gallery_data = []
-
-    # finally:
-    #     connection.close()
 
     return render_template('gallery.html', gallery=gallery_data)
 
