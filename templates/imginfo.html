@@ -96,7 +96,7 @@
             // Regular expression to allow alphanumeric characters, full stops, and special characters for img_link
             var imgLinkRegex = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/? ]+$/;
             // Regular expression to allow alphanumeric characters and full stops
-            var regex = /^[a-zA-Z0-9.]+$/;
+            var regex = /^[a-zA-Z0-9./]+$/;
             
             // Check if imgLink contains special characters
             if (!imgLinkRegex.test(imgLink)) {
@@ -105,8 +105,8 @@
             }
             
             // Check if any input contains special characters
-            if (!regex.test(imgDescription) || !regex.test(title) || !regex.test(content)) {
-                alert('Inputs cannot contain special characters except for full stops.');
+            if (!regex.test(imgDescription) || !regex.test(title) || !regex.test(date) || !regex.test(content)) {
+                alert('Inputs cannot contain special characters except for full stops or slashes.');
                 return false;
             }
             
