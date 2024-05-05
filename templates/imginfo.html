@@ -43,7 +43,7 @@
     <br>
     <div class="container">
         <h2>Add Image to Gallery</h2>
-        <form action="/add_image" method="POST">
+        <form action="/add_image" method="POST" onsubmit="return validateImageForm()">
             <label for="img_link">Image Link:</label><br>
             <input type="text" id="img_link" name="img_link"><br>
             <label for="img_description">Image Description:</label><br>
@@ -51,6 +51,23 @@
             <input type="submit" value="Add Image">
         </form>
     </div>
+    <script>
+        function validateImageForm() {
+            var imgLink = document.getElementById('img_link').value;
+            var imgDescription = document.getElementById('img_description').value;
+            
+            // Regular expression to allow alphanumeric characters and full stops
+            var regex = /^[a-zA-Z0-9.]+$/;
+            
+            // Check if any input contains characters other than alphanumeric characters and full stops
+            if (!regex.test(imgLink) || !regex.test(imgDescription)) {
+                alert('Inputs cannot contain special characters except for full stops. Only alphanumeric characters and full stops are allowed.');
+                return false;
+            }
+            
+            return true;
+        }
+    </script>
     <br>
     <div class="container">
         <h2>Add a Blog Post</h2>
@@ -67,8 +84,52 @@
             <input type="text" id="content" name="content" class="large-content"><br><br>
             <input type="submit" value="Add Blog">
         </form>
-    <!-- <button onclick="window.location.href = 'uploadimage.html';">Go to Upload Page</button> -->
     </div>
+
+    <div class="container">
+        <h2>Add a Blog Post</h2>
+        <form id="blogForm" action="/add_blog" method="POST" onsubmit="return validateBlogForm()">
+            <label for="img_link">Image Link:</label><br>
+            <input type="text" id="img_link" name="img_link"><br>
+            <label for="img_description">Image Description:</label><br>
+            <input type="text" id="img_description" name="img_description"><br><br>
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title"><br><br>
+            <label for="date">Date:</label><br>
+            <input type="date" id="date" name="date"><br><br>
+            <label for="content">Content:</label><br>
+            <textarea id="content" name="content" class="large-content"></textarea><br><br>
+            <input type="submit" value="Add Blog">
+        </form>
+    </div>
+    <script>
+        function validateBlogForm() {
+            var imgLink = document.getElementById('img_link').value;
+            var imgDescription = document.getElementById('img_description').value;
+            var title = document.getElementById('title').value;
+            var date = document.getElementById('date').value;
+            var content = document.getElementById('content').value;
+            
+            // Regular expression to allow alphanumeric characters, full stops, and special characters for img_link
+            var imgLinkRegex = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/? ]+$/;
+            // Regular expression to allow alphanumeric characters and full stops
+            var regex = /^[a-zA-Z0-9.]+$/;
+            
+            // Check if imgLink contains special characters
+            if (!imgLinkRegex.test(imgLink)) {
+                alert('Image Link cannot contain special characters except for !@#$%^&*()_+-=[]{};:\'"\\|,.<>/?');
+                return false;
+            }
+            
+            // Check if any input contains special characters
+            if (!regex.test(imgDescription) || !regex.test(title) || !regex.test(content)) {
+                alert('Inputs cannot contain special characters except for full stops.');
+                return false;
+            }
+            
+            return true;
+        }
+    </script>    
 </body>
 <style>
     form {
