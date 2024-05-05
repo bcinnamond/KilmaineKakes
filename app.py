@@ -21,7 +21,7 @@ def get_db_connection():
         host=credentials['host'],
         user=credentials['username'],
         password=credentials['password'],
-        database=credentials['dbname']
+        database=credentials['dbInstanceIdentifier']
     )
 
 
