@@ -3,3 +3,4 @@
 def test_contact(app, client):
     res = client.get('/contact')
     assert res.status_code == 200
+    assert len(res.context['contact']) > 0

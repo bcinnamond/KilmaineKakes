@@ -3,3 +3,4 @@
 def test_blog(app, client):
     res = client.get('/blog')
     assert res.status_code == 200
+    assert len(res.context['blog']) > 0
