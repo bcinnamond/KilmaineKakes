@@ -70,26 +70,19 @@ def loginpg():
 
 @app.route('/owner_login', methods=['POST'])
 def owner_login():
-    USERNAME = 'kilmainekakes'
-    PASSWORD = 'K1lma1n3KaK3s!'
-
     username = request.form['username']
     password = request.form['password']
-    
-    # Use parameterized query to prevent SQL injection
+
     connection = get_db_connection()
-    cursor = connection.cursor()
-    cursor.execute("SELECT * FROM users WHERE username = %s AND password = %s", (username, password))
+    cursor = connection.cursor(pymysql.cursors.DictCursor)
+    cursor.execute("SELECT * FROM login WHERE username = %s AND password = %s", (username, password))
     user = cursor.fetchone()
     connection.close()
-    
-    # Check if the username and password entered match
-    if user and user['username'] == USERNAME and user['password'] == PASSWORD:
-        # Redirect to a success page if login is successful
+
+    if user:
         return redirect(url_for('success'))
     else:
-        # Redirect back to the login page with an error message if login fails
-        return redirect(url_for('login'))
+        return redirect(url_for('loginpg'))
 
 @app.route('/success')
 def success():
