@@ -55,7 +55,7 @@ def contactpg():
     except pymysql.Error as e:
         # Handle database errors
         print(f"Error fetching contact data: {e}")
-        gallery_data = []
+        contact_data = []
         return render_template('contact.html', contact=contact_data)
 
 @app.route('/gallery')
