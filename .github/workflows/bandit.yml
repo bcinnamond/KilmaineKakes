@@ -18,4 +18,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Bandit
-        run: bandit -r . -x tests/
+        run: bandit -r . -x ./tests/
