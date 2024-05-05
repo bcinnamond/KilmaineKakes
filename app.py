@@ -1,23 +1,27 @@
 import pymysql
+import boto3
+import json
 from flask import Flask, render_template, request, redirect, url_for
 
 
 app = Flask(__name__)
 app = app 
 
-# Database configuration
-db_host = 'kilmainekakes.crs8soowki9c.eu-north-1.rds.amazonaws.com'
-db_username = 'admin'
-db_password = 'K1lma1n3KaK3s!'
-db_name = 'kilmainekakes'
+# Retrieve database credentials from AWS Secrets Manager
+def get_db_credentials():
+    client = boto3.client('secretsmanager')
+    response = client.get_secret_value(SecretId='databasecredentials')
+    secret_data = response['SecretString']
+    return json.loads(secret_data)
 
 # Define database connection function
 def get_db_connection():
+    credentials = get_db_credentials()
     return pymysql.connect(
-        host=db_host,
-        user=db_username,
-        password=db_password,
-        database=db_name
+        host=credentials['host'],
+        user=credentials['username'],
+        password=credentials['password'],
+        database=credentials['dbname']
     )
 
 
