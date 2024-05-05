@@ -7,21 +7,19 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 app = app 
 
-# Retrieve database credentials from AWS Secrets Manager
-def get_db_credentials():
-    client = boto3.client('secretsmanager', region_name='eu-north-1')
-    response = client.get_secret_value(SecretId='databasecredentials')
-    secret_data = response['SecretString']
-    return json.loads(secret_data)
+# Database configuration
+db_host = 'kilmainekakes.crs8soowki9c.eu-north-1.rds.amazonaws.com'
+db_username = 'admin'
+db_password = 'K1lma1n3KaK3s!'
+db_name = 'kilmainekakes'
 
-# Define database connection function
+# Connecting to database
 def get_db_connection():
-    credentials = get_db_credentials()
     return pymysql.connect(
-        host=credentials['host'],
-        user=credentials['username'],
-        password=credentials['password'],
-        database=credentials['dbname']
+        host=db_host,
+        user=db_username,
+        password=db_password,
+        database=db_name
     )
 
 
