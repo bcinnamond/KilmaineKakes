@@ -132,11 +132,11 @@
                 var openhrs = document.getElementById('openhrs').value;
 
                 // Regular expression to allow alphanumeric characters and full stops
-                var regex = /^[a-zA-Z0-9@:\-.]+$/;
+                var regex = /^[a-zA-Z0-9@:\-.()]+$/;
                 
                 // Check if any input contains characters other than alphanumeric characters and full stops
                 if (!regex.test(phone) || !regex.test(email) || !regex.test(openhrs)) {
-                    alert('Inputs cannot contain special characters except for full stops. Only alphanumeric characters and full stops are allowed.');
+                    alert('Inputs can only contain alphanumeric characters, @, :, -, (), and full stops.');
                     return false;
                 }
                 
